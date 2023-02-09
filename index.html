@@ -5,9 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator - Devon</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div id="calculator-container">
+      <div id="calculator"></div>
+      <div class="calculator__display">
+        <p class="display-content"></p>
+      </div>
+      <div class="buttons">
+        <button class="digits" data-type="number" value="0">0</button>
+        <button class="digits" data-type="number" value="1">1</button>
+        <button class="digits" data-type="number" value="2">2</button>
+        <button class="digits" data-type="number" value="3">3</button>
+        <button class="digits" data-type="number" value="4">4</button>
+        <button class="digits" data-type="number" value="5">5</button>
+        <button class="digits" data-type="number" value="6"></button>
+        <button class="digits" data-type="number" value="7">7</button>
+        <button class="digits" data-type="number" value="8">8</button>
+        <button class="digits" data-type="number" value="9">9</button>
+        <button class="equals" data-type="equal" value="=">=</button>
+        <button class="operators" data-type="operator" value="x">×</button>
+        <button class="operators" data-type="operator" value="+">+</button>
+        <button class="operators" data-type="operator" value="/">÷</button>
+        <button class="operators" data-type="operator" value="-">-</button>
+        <button class="clear" data-type="reset">AC</button>
+        <button class="decimal" data-type="decimal" value=".">.</button>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
