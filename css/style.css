@@ -1,14 +1,26 @@
 #calculator-container {
+  margin: 25vh auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.calculator__display {
+  height: 8vh;
+  background: rgb(124, 124, 124);
+}
+
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
+}
+
+button {
+  border: none;
+  margin: 0.2rem;
+  border-radius: 8px;
 }
 
 .operators,
@@ -21,10 +33,19 @@
 
 .operators {
   grid-column: 4;
+  transition: background 0.25s;
+}
+
+.operators:hover {
+  background: rgb(45, 135, 238);
 }
 
 .digits {
   grid-column: 1, 2, 3;
+}
+
+.digits:hover {
+  background: rgb(230, 163, 38);
 }
 
 .clear {
@@ -33,4 +54,10 @@
 
 .equals {
   grid-column: 3 / span 2;
+  background: rgb(108, 186, 108);
+  transition: background 0.25s;
+}
+
+.equals:hover {
+  background: #268733;
 }
