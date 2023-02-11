@@ -1,14 +1,7 @@
-const digitButtons = document.querySelectorAll(".digits").forEach((item) => {
-  item.addEventListener("click", (event) => {
-    let num1 = event.target.value;
-  });
-});
-
-const operators = document.querySelectorAll('.operators').forEach((item) => {
-  item.addEventListener('click', (event) => {
-    let operator = event.target.value;
-  })
-})
+const digitButtons = document.querySelectorAll(".digits");
+const operators = document.querySelectorAll(".operators");
+const clear = document.querySelector(".clear");
+let display = document.querySelector(".display-content");
 
 function add(a, b) {
   return a + b;
@@ -37,3 +30,21 @@ function operate(operator, num1, num2) {
     return divide(num1, num2);
   }
 }
+
+digitButtons.forEach((button) => {
+  display.textContent = "";
+  button.addEventListener("click", (event) => {
+    let numValue = event.target.value;
+    display.textContent += numValue;
+  });
+});
+
+clear.addEventListener("click", (event) => {
+  display.textContent = null;
+});
+
+operators.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    let operator = event.target.value;
+  });
+});
