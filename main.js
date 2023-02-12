@@ -25,6 +25,8 @@ digitButtons.forEach((button) => {
   button.addEventListener("click", () => concatNumber(button.textContent));
 });
 
+clear.addEventListener("click", () => clearDisplay());
+
 operators.forEach((button) => {
   button.addEventListener("click", () => setOperator(button.textContent));
 });
@@ -42,12 +44,7 @@ function setOperator(operator) {
 
 function clearDisplay() {
   display.textContent = "";
-  clear.addEventListener("click", (event) => {
-    display.textContent = "";
-  });
 }
-
-clearDisplay();
 
 function operate(operator, a, b) {
   if (operator === "+") {
