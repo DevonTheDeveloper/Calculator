@@ -2,6 +2,7 @@ const digitButtons = document.querySelectorAll(".digits");
 const operators = document.querySelectorAll(".operators");
 const clear = document.querySelector(".clear");
 let display = document.querySelector(".display-content");
+let number = "";
 
 function add(a, b) {
   return a + b;
@@ -32,19 +33,25 @@ function operate(operator, num1, num2) {
 }
 
 digitButtons.forEach((button) => {
-  display.textContent = "";
-  button.addEventListener("click", (event) => {
-    let numValue = event.target.value;
-    display.textContent += numValue;
-  });
-});
-
-clear.addEventListener("click", (event) => {
-  display.textContent = null;
+  button.addEventListener("click", () => concatNumber(button.textContent));
 });
 
 operators.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    let operator = event.target.value;
-  });
+  button.addEventListener("click", () => setOperator(button.textContent));
 });
+
+function concatNumber(number) {
+  display.textContent += number;
+}
+
+function setOperator(operator) {
+  display.textContent += operator;
+}
+
+function clearDisplay() {
+  clear.addEventListener("click", (event) => {
+    display.textContent = null;
+  });  
+}
+
+clearDisplay();
