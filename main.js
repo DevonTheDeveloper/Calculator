@@ -1,25 +1,18 @@
+let currNum = "";
+let prevNum = "";
+let operator = "";
+
 const digitButtons = document.querySelectorAll(".digits");
 const operators = document.querySelectorAll(".operators");
 const clear = document.querySelector(".clear");
-let display = document.querySelector(".display-content");
-let decimalButton = document.querySelector(".decimal");
-let number = "";
+const equals = document.querySelector(".equals");
+const currentDisplay = document.querySelector(".current-display");
+const previousDisplay = document.querySelector(".previous-display");
+const decimalButton = document.querySelector(".decimal");
 
-function add(a, b) {
-  return a + b;
-}
+currentDisplay.textContent = "0";
 
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
+equals.addEventListener("click", () => operate());
 
 digitButtons.forEach((button) => {
   button.addEventListener("click", () => concatNumber(button.textContent));
@@ -32,28 +25,38 @@ operators.forEach((button) => {
 });
 
 function concatNumber(number) {
-  if (display.textContent === "0") {
+  if (currentDisplay.textContent === "0") {
     clearDisplay();
   }
-  display.textContent += number;
+  currNum += number;
+  currentDisplay.textContent = currNum;
 }
 
-function setOperator(operator) {
-  display.textContent += ` ${operator} `;
+function setOperator(opr) {
+  if (currNum === "") {
+    oprCheck(opr);
+  } else if (prevNum === "") {
+    prevNum = currNum;
+    oprCheck(opr);
+  } else {
+    operate();
+    operator = opr;
+    previousDisplay.textContent = `${prevNum} ${operator}`;
+    currentDisplay.textContent = "0";
+  }
+}
+
+function oprCheck(txt) {
+  operator = txt;
+  previousDisplay.textContent = `${prevNum} ${operator}`;
+  currentDisplay.textContent = "0";
+  currNum = "";
 }
 
 function clearDisplay() {
-  display.textContent = "";
-}
-
-function operate(operator, a, b) {
-  if (operator === "+") {
-    return add(a, b);
-  } else if (operator === "-") {
-    return subtract(a, b);
-  } else if (operator === "×") {
-    return multiply(a, b);
-  } else if (operator === "÷") {
-    return divide(a, b);
-  }
+  currentDisplay.textContent = "0";
+  previousDisplay.textContent = "";
+  currNum = "";
+  prevNum = "";
+  operator = "";
 }
