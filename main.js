@@ -26,8 +26,8 @@ operators.forEach((button) => {
 });
 
 function addNumber(number) {
-  if (number.indexOf(0) === 0) {
-    return;
+  if (currentDisplay.textContent === '0') {
+    clearDisplay();
   }
   currNum += number;
   currentDisplay.textContent = currNum;
