@@ -26,7 +26,7 @@ operators.forEach((button) => {
 });
 
 function addNumber(number) {
-  if (number === 0) {
+  if (number.indexOf(0) === 0) {
     return;
   }
   currNum += number;
@@ -45,7 +45,7 @@ function addDecimal() {
 
 function setOperator(opr) {
   if (currNum === "") {
-    return
+    return;
   } else if (prevNum === "") {
     prevNum = currNum;
     oprCheck(opr);
@@ -84,7 +84,7 @@ function operate() {
     prevNum *= currNum;
   } else if (operator === "÷") {
     prevNum /= currNum;
-    if (currNum <= 0) {
+    if (currNum <= 0 || prevNum <= 0) {
       currentDisplay.textContent = "Infinity";
       displayResults();
       return;
