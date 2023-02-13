@@ -26,7 +26,9 @@ operators.forEach((button) => {
 });
 
 function addNumber(number) {
-  currNum - 0;
+  if (number === 0) {
+    return;
+  }
   currNum += number;
   currentDisplay.textContent = currNum;
 }
