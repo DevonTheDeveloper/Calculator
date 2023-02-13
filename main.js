@@ -26,7 +26,7 @@ operators.forEach((button) => {
 });
 
 function addNumber(number) {
-  if (currentDisplay.textContent === '0') {
+  if (currentDisplay.textContent === "0") {
     clearDisplay();
   }
   currNum += number;
@@ -34,7 +34,7 @@ function addNumber(number) {
 }
 
 function addDecimal() {
-  if (!currNum.includes("0")) {
+  if (!currNum.includes("0") && currNum === "") {
     currNum = "0";
   }
   if (currentDisplay.textContent === "") currentDisplay.textContent = "0";
