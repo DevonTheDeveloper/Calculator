@@ -42,14 +42,14 @@ function setOperator(opr) {
     operate();
     operator = opr;
     previousDisplay.textContent = `${prevNum} ${operator}`;
-    currentDisplay.textContent = "0";
+    currentDisplay.textContent = "";
   }
 }
 
 function oprCheck(txt) {
   operator = txt;
   previousDisplay.textContent = `${prevNum} ${operator}`;
-  currentDisplay.textContent = "0";
+  currentDisplay.textContent = "";
   currNum = "";
 }
 
@@ -60,7 +60,6 @@ function clearDisplay() {
   prevNum = "";
   operator = "";
 }
-
 
 function operate() {
   prevNum = Number(prevNum);
@@ -73,10 +72,28 @@ function operate() {
   } else if (operator === "×") {
     prevNum *= currNum;
   } else if (operator === "÷") {
+    prevNum /= currNum;
     if (currNum <= 0) {
-      currNum.textContent = "No dividing by 0, dumbass.";
+      currentDisplay.textContent = "Infinity";
+      displayResults();
       return;
     }
-    a /= b;
   }
+
+  prevNum = roundNumber(prevNum);
+  prevNum = prevNum.toString();
+  displayResults();
+}
+
+function roundNumber(num) {
+  return Math.round(num);
+}
+
+function displayResults() {
+  if (true) {
+    currentDisplay.textContent = prevNum;
+  }
+  previousDisplay.textContent = "";
+  operator = "";
+  currNum = "";
 }
