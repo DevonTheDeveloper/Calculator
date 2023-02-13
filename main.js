@@ -90,7 +90,10 @@ function operate() {
       return;
     }
   }
-
+  else {
+    return currNum;
+  }
+  
   prevNum = prevNum.toString();
   displayResults();
 }
