@@ -4,18 +4,19 @@ let operator = "";
 
 const digitButtons = document.querySelectorAll(".digits");
 const operators = document.querySelectorAll(".operators");
+const decimal = document.querySelector(".decimal");
 const clear = document.querySelector(".clear");
 const equals = document.querySelector(".equals");
 const currentDisplay = document.querySelector(".current-display");
 const previousDisplay = document.querySelector(".previous-display");
-const decimalButton = document.querySelector(".decimal");
 
 currentDisplay.textContent = "0";
 
+decimal.addEventListener("click", () => addDecimal());
 equals.addEventListener("click", () => operate());
 
 digitButtons.forEach((button) => {
-  button.addEventListener("click", () => concatNumber(button.textContent));
+  button.addEventListener("click", () => addNumber(button.textContent));
 });
 
 clear.addEventListener("click", () => clearDisplay());
@@ -24,11 +25,19 @@ operators.forEach((button) => {
   button.addEventListener("click", () => setOperator(button.textContent));
 });
 
-function concatNumber(number) {
+function addNumber(number) {
   if (currentDisplay.textContent === "0") {
     clearDisplay();
   }
   currNum += number;
+  currentDisplay.textContent = currNum;
+}
+
+function addDecimal() {
+  if (currentDisplay.textContent === "") 
+    currentDisplay.textContent = "0";
+  if (currentDisplay.textContent.includes(".")) return;
+  currNum += ".";
   currentDisplay.textContent = currNum;
 }
 
@@ -80,13 +89,8 @@ function operate() {
     }
   }
 
-  prevNum = roundNumber(prevNum);
   prevNum = prevNum.toString();
   displayResults();
-}
-
-function roundNumber(num) {
-  return Math.round(num);
 }
 
 function displayResults() {
