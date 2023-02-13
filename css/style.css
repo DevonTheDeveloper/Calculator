@@ -18,7 +18,7 @@
   border-radius: 8px;
 }
 
-.display-content {
+.current-display {
   display: flex;
   justify-content: flex-end;
   padding: 0.2rem;
