@@ -18,7 +18,7 @@
   border-radius: 8px;
 }
 
-.current-display {
+.current-display, .previous-display {
   display: flex;
   justify-content: flex-end;
   padding: 0.2rem;
@@ -27,6 +27,15 @@
   word-wrap: break-word;
   word-break: break-all;
   overflow: hidden;
+}
+
+.current-display {
+  font-size: 18px;
+}
+
+.previous-display {
+  margin-bottom: -16px;
+  font-size: 14px;
 }
 
 .buttons {
