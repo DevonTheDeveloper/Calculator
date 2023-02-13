@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(71, 86, 91);
+  background: rgb(62, 66, 68);
   border-radius: 8px;
   margin: auto auto;
   width: 235px;
@@ -30,7 +30,7 @@
 }
 
 .current-display {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .previous-display {
