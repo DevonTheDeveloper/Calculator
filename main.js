@@ -26,16 +26,16 @@ operators.forEach((button) => {
 });
 
 function addNumber(number) {
-  if (currentDisplay.textContent === "0") {
-    clearDisplay();
-  }
+  currNum - 0;
   currNum += number;
   currentDisplay.textContent = currNum;
 }
 
 function addDecimal() {
-  if (currentDisplay.textContent === "") 
-    currentDisplay.textContent = "0";
+  if (!currNum.includes("0")) {
+    currNum = "0";
+  }
+  if (currentDisplay.textContent === "") currentDisplay.textContent = "0";
   if (currentDisplay.textContent.includes(".")) return;
   currNum += ".";
   currentDisplay.textContent = currNum;
@@ -43,7 +43,7 @@ function addDecimal() {
 
 function setOperator(opr) {
   if (currNum === "") {
-    oprCheck(opr);
+    return
   } else if (prevNum === "") {
     prevNum = currNum;
     oprCheck(opr);
