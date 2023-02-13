@@ -60,3 +60,23 @@ function clearDisplay() {
   prevNum = "";
   operator = "";
 }
+
+
+function operate() {
+  prevNum = Number(prevNum);
+  currNum = Number(currNum);
+
+  if (operator === "+") {
+    prevNum += currNum;
+  } else if (operator === "-") {
+    prevNum -= currNum;
+  } else if (operator === "×") {
+    prevNum *= currNum;
+  } else if (operator === "÷") {
+    if (currNum <= 0) {
+      currNum.textContent = "No dividing by 0, dumbass.";
+      return;
+    }
+    a /= b;
+  }
+}
